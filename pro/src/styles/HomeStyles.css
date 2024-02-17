@@ -1,0 +1,57 @@
+/* HomeStyles.css */
+.home {
+  position: relative;
+  width: 100%;
+  height: 700px;
+}
+
+.headerContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.headerContainer h1 {
+  font-size: 3rem;
+}
+
+.headerContainer p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.headerContainer button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+/* Adjustments for mobile view */
+@media only screen and (max-width: 768px) {
+  .home {
+    height: 400px; /* Adjust height for mobile */
+  }
+
+  .headerContainer {
+    padding: 0 20px;
+  }
+
+  .headerContainer h1 {
+    font-size: 2.5rem;
+  }
+
+  .headerContainer p {
+    font-size: 1.2rem;
+  }
+
+  .headerContainer button {
+    font-size: 1rem;
+  }
+}
