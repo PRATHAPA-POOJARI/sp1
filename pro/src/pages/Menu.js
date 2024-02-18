@@ -98,29 +98,38 @@ const Menu = ({ setCartItems }) => {
             <div>...Loading</div>
           ) : (
             filteredMenuItems.map((menu, index) => (
-              <Card key={index} sx={{ width: 250, height: 400, margin: 1 }}>
-                <CardActionArea
-                  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-                  onClick={() => handleOpenDialog(menu)}
-                >
-                  <CardMedia
+              <Box key={index} sx={{ position: "relative", width: 250, height: 200, margin: 1 }}>
+                <Card sx={{ width: "100%", height: "100%" }}>
+                  <CardActionArea
                     sx={{
-                      height: 300, // Adjust height as needed
-                      width: 200, // Adjust width as needed
-                      objectFit: 'contain',
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      height: "100%",
                     }}
-                    component={"img"}
-                    src={menu.thumbnail}
-                    alt={menu.title}
-                  />
-                  <CardContent>
-                    <Typography variant="h6" component={"div"} align="center">
-                      {menu.title}
-                    </Typography>
-                    <Typography variant="body1" align="center">{`$${menu.price}`}</Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
+                    onClick={() => handleOpenDialog(menu)}
+                  >
+                    <CardMedia
+                      sx={{
+                        height: "80%",
+                        width: "100%",
+                        objectFit: "contain",
+                      }}
+                      component={"img"}
+                      src={menu.thumbnail}
+                      alt={menu.title}
+                    />
+                    <CardContent>
+                      <Typography variant="h6" component={"div"} align="center" sx={{ fontSize: 14 }}>
+                        {menu.title}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+                <Box sx={{ position: "absolute", bottom: 0, width: "100%", textAlign: "center", backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
+                  <Typography variant="body1" sx={{ fontSize: 14 }}>{`$${menu.price}`}</Typography>
+                </Box>
+              </Box>
             ))
           )}
         </Box>
