@@ -87,18 +87,18 @@ const Menu = ({ setCartItems }) => {
     <Layout>
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         <TextField
-          label="Search"
+          label="Please search here"
           variant="outlined"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          sx={{ marginBottom: 2, width: "50%" }}
+          sx={{  marginTop : 2, marginBottom: 2, width: "50%" }}
         />
         <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
           {loading ? (
             <div>...Loading</div>
           ) : (
             filteredMenuItems.map((menu, index) => (
-              <Box key={index} sx={{ position: "relative", width: 250, height: 200, margin: 1 }}>
+              <Box key={index} sx={{ position: "relative", width: 250, height: 350, margin: 1 }}>
                 <Card sx={{ width: "100%", height: "100%" }}>
                   <CardActionArea
                     sx={{
@@ -120,7 +120,7 @@ const Menu = ({ setCartItems }) => {
                       alt={menu.title}
                     />
                     <CardContent>
-                      <Typography variant="h6" component={"div"} align="center" sx={{ fontSize: 14 }}>
+                      <Typography variant="body1" component={"div"} align="center" sx={{ fontSize: 14 }}>
                         {menu.title}
                       </Typography>
                     </CardContent>
@@ -143,6 +143,7 @@ const Menu = ({ setCartItems }) => {
               height: 300,
               width: '100%',
               objectFit: 'contain',
+              
             }}
             component={"img"}
             src={selectedMenuItem?.thumbnail}
