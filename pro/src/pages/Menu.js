@@ -30,7 +30,7 @@ const Menu = ({ setCartItems }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://www.googleapis.com/books/v1/volumes?q=programming");
+        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}`);
         const items = response.data.items.map(item => ({
           id: item.id,
           title: item.volumeInfo.title,
@@ -49,7 +49,7 @@ const Menu = ({ setCartItems }) => {
     };
 
     fetchData();
-  }, []);
+  }, [searchQuery]);
 
   // Filter menu items based on search query
   useEffect(() => {
@@ -98,14 +98,13 @@ const Menu = ({ setCartItems }) => {
             <div>...Loading</div>
           ) : (
             filteredMenuItems.map((menu, index) => (
-              <Card key={index} sx={{ maxWidth: "250px", display: "flex", m: 2, flexDirection: 'column', marginTop: 2 }}>
+              <Card key={index} sx={{ width: 250, height: 400, margin: 1 }}>
                 <CardActionArea
                   sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
                   onClick={() => handleOpenDialog(menu)}
                 >
                   <CardMedia
                     sx={{
-                      marginTop: 4,
                       height: 100,
                       width: 150,
                       objectFit: 'contain',

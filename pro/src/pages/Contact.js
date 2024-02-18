@@ -15,11 +15,12 @@ const Contact = ({ cartItems: initialCartItems }) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [cartItems, setCartItems] = useState(initialCartItems);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://www.googleapis.com/books/v1/volumes?q=programming");
+        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}`);
         const items = response.data.items.map(item => ({
           id: item.id,
           title: item.volumeInfo.title,
@@ -33,7 +34,7 @@ const Contact = ({ cartItems: initialCartItems }) => {
     };
 
     fetchData();
-  }, []);
+  }, [searchQuery]);
 
   const handleOpenDialog = (item) => {
     setSelectedItem(item);
@@ -78,6 +79,13 @@ const Contact = ({ cartItems: initialCartItems }) => {
         <Typography variant="h4" align="center" gutterBottom>
           Your Cart
         </Typography>
+        <TextField
+          label="Search"
+          variant="outlined"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          sx={{ marginBottom: 2, width: "100%" }}
+        />
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
           {cartItems.map(item => (
             <Card key={item.id} sx={{ width: 250, height: 400, marginBottom: 2, margin: 1 }}>
