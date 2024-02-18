@@ -105,8 +105,8 @@ const Menu = ({ setCartItems }) => {
                 >
                   <CardMedia
                     sx={{
-                      height: 100,
-                      width: 150,
+                      height: 300, // Adjust height as needed
+                      width: 200, // Adjust width as needed
                       objectFit: 'contain',
                     }}
                     component={"img"}
