@@ -34,11 +34,11 @@ const Home = () => {
             <button>
               ORDER NOW
             </button>
-          </Link>amcjSCjksn
+          </Link>
         </div>
       </div>
     </Layout>
   );
 };
 
-export default Home;hjghjjvv
+export default Home;

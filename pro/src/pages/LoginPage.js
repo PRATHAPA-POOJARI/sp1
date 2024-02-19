@@ -84,7 +84,7 @@ const LoginPage = ({ setLoggedIn }) => {
               />
               <DialogActions>
                 <GoogleLogin
-                  clientId="YOUR_CLIENT_ID_FROM_GOOGLE_DEVELOPER_CONSOLE"
+                  clientId="107927664873-olgo4b6berup6l3lo0ccvoin6oi6vq4q.apps.googleusercontent.com"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                   cookiePolicy={'single_host_origin'}

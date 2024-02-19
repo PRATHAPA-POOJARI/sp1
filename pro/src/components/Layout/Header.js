@@ -60,7 +60,7 @@ const Header = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to={"/menu"}>All Products</NavLink>
+          <NavLink to={"/menu"}>All Books</NavLink>
         </li>
 
         <li>
@@ -106,7 +106,7 @@ const Header = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/menu"}>All Products</NavLink>
+                  <NavLink to={"/menu"}>All Books</NavLink>
                 </li>
                 <li>
                   <NavLink to={"/contact"}>Carts</NavLink>
