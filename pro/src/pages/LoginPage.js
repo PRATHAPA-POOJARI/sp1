@@ -9,7 +9,7 @@ const LoginPage = ({ setLoggedIn }) => {
   const [openSignup, setOpenSignup] = useState(true);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const navigate = useNavigate();
-  
+
   const { control, handleSubmit, formState: { errors } } = useForm();
 
   const handleCloseSignup = () => {
@@ -30,7 +30,6 @@ const LoginPage = ({ setLoggedIn }) => {
   const onSubmit = (data) => {
     console.log('Submitted data:', data);
     handleCloseSignup();
-    handleOpenSnackbar(); // Open snackbar upon successful signup
     navigate('/home');
   };
 
@@ -38,6 +37,7 @@ const LoginPage = ({ setLoggedIn }) => {
     console.log(response);
     // Set loggedIn state to true upon successful login
     setLoggedIn(true);
+    handleOpenSnackbar(); // Open snackbar upon successful login
   };
 
   return (
@@ -105,11 +105,11 @@ const LoginPage = ({ setLoggedIn }) => {
       )}
       <Snackbar
         open={openSnackbar}
-        autoHideDuration={3000}
+        autoHideDuration={4000}
         onClose={handleCloseSnackbar}
       >
         <Alert onClose={handleCloseSnackbar} sx={{ color: 'green' }}>
-          Signup successful!
+          Logout successful!
         </Alert>
       </Snackbar>
     </div>
