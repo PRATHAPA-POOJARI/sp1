@@ -42,7 +42,7 @@ const Footer = () => {
 
     return (
         <>
-            <Box sx={{ textAlign: "center", bgcolor: 'black', color: 'white', p: 3 }}>
+            <Box sx={{ textAlign: "center", bgcolor: 'black', color: 'white', p: 1 }}>
                 <Box sx={{
                     my: 3,
                     "& svg": {
