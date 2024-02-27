@@ -87,45 +87,46 @@ const Contact = ({ cartItems: initialCartItems }) => {
           sx={{ marginBottom: 2, width: "100%" }}
         />
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-          {cartItems.map(item => (
-            <Card key={item.id} sx={{ width: 250, height: 400, marginBottom: 2, margin: 1 }}>
-              <CardActionArea onClick={() => handleOpenDialog(item)}>
-                <CardMedia
-                  sx={{
-                    marginTop: 4,
-                    height: 100,
-                    width: 150,
-                    objectFit: 'contain',
-                  }}
-                  component="img"
-                  height="140"
-                  image={item.thumbnail}
-                  alt={item.title}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {item.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {`$${item.price}`}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 1 }}>
-                <Typography>{cartItems.filter(cartItem => cartItem.id === item.id).length}</Typography>
-                <IconButton onClick={() => handleEditItem(item)}>
-                  <EditIcon />
-                </IconButton>
-                <IconButton onClick={() => handleViewItem(item)}>
-                  <VisibilityIcon />
-                </IconButton>
-                <IconButton onClick={() => handleDeleteItem(item)}>
-                  <DeleteIcon />
-                </IconButton>
-              </Box>
-            </Card>
-          ))}
-        </Box>
+  {cartItems.map((item, index) => (
+    <Card key={item.id} sx={{ width: 250, height: 400, marginBottom: 2, margin: 1 }}>
+      <CardActionArea onClick={() => handleOpenDialog(item)}>
+        <CardMedia
+          sx={{
+            marginTop: 4,
+            height: 100,
+            width: 150,
+            objectFit: 'contain',
+          }}
+          component="img"
+          height="140"
+          image={item.thumbnail}
+          alt={item.title}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {item.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {`$${item.price}`}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 1 }}>
+        <Typography>{index + 1}</Typography>
+        <IconButton onClick={() => handleEditItem(item)}>
+          <EditIcon />
+        </IconButton>
+        <IconButton onClick={() => handleViewItem(item)}>
+          <VisibilityIcon />
+        </IconButton>
+        <IconButton onClick={() => handleDeleteItem(item)}>
+          <DeleteIcon />
+        </IconButton>
+      </Box>
+    </Card>
+  ))}
+</Box>
+
       </Box>
 
       <Dialog open={selectedItem !== null} onClose={handleCloseDialog}>

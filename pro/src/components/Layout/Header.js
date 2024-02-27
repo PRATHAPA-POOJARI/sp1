@@ -14,7 +14,8 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
-import Logo from "../../images/Logo.jpg";
+import Logo from "../../images/Logo.jpeg";
+import Logo1 from "../../images/Logo1.png";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -43,14 +44,15 @@ const Header = () => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box onClick={handleDrawerToggle} sx={{  textAlign: "center" }}>
       <Typography
         color={"goldenrod"}
         variant="h6"
+       
         component="div"
         sx={{ flexGrow: 1, my: 2 }}
       >
-        <img src={Logo} alt="logo" height={"70"} width="200" />
+        <img src={Logo1} alt="logo" height={"70"} width="200" />
       </Typography>
       <Divider />
       <ul className="mobile-navigation">
